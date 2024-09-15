@@ -1,12 +1,16 @@
 ### < Hey! I'm Alina />
 
+<p>
+  I'm Alina, a 20-year-old student at the **Higher School of Economics**, currently pursuing a degree at the **Graduate School of Business**. My academic journey, especially through courses like **Data Analysis**, **Algorithms**, and **Data Storage Structures**, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities in the tech world!
+</p>
+
 ### I Currently Work With:
 ![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white&color=38bdf9)
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=black&labelColor=black)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=black)
 ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
 ![Webpack](https://img.shields.io/badge/Webpack-4F4F4F?logo=webpack&logoColor=white&color=2b3a42)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?logo=postgresql&logoColor=white)
@@ -17,21 +21,6 @@
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white)
 
-
-<!--
-**Pipchenkovaa/Pipchenkovaa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
 <details>
 <summary> Some statistics </summary>
 <br />
@@ -47,5 +36,9 @@ Here are some ideas to get you started:
 
 [![Telegram](https://img.shields.io/badge/Telegram-@pip_ch-blue?style=social&logo=telegram)](https://t.me/@pip_ch)
 [![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=social&logo=vk)](https://vk.com/pip_ch)
+[![Github](https://img.shields.io/badge/-@Pipchenkovaa-24292e?style=flat&logo=Github&logoColor=white&link=https://github.com/Pipchenkovaa)](https://github.com/Pipchenkovaa/)
+
+
+
 [![GitHub followers](https://img.shields.io/github/followers/Pipchenkovaa.svg?label=Follow%20@Pipchenkovaa&style=social)](https://github.com/Pipchenkovaa/)
 [![Email](https://img.shields.io/badge/Email-pipchenkova0701@gmail.com-red?style=flat-square&logo=gmail)](mailto:pipchenkova0701@gmail.com)

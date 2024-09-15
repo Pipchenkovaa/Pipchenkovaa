@@ -31,5 +31,5 @@ Here are some ideas to get you started:
 
 [![Telegram](https://img.shields.io/badge/Telegram-@pip_ch-blue?style=social&logo=telegram)](https://t.me/@pip_ch)
 [![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=social&logo=vk)](https://vk.com/pip_ch)
-[![Email](https://img.shields.io/badge/Email-pipchenkova0701@gmail.com-blue?style=flat-square&logo=gmail)](mailto:pipchenkova0701@gmail.com)
+[![Email](https://img.shields.io/badge/Email-pipchenkova0701@gmail.com-red?style=flat-square&logo=gmail)](mailto:pipchenkova0701@gmail.com)
 [![GitHub followers](https://img.shields.io/github/followers/Pipchenkovaa.svg?label=Follow%20@Pipchenkovaa&style=social)](https://github.com/Pipchenkovaa/)

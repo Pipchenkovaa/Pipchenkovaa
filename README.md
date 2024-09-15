@@ -1,20 +1,19 @@
-<h1 align="center"> Hey, glad to see you here! </h1>
+<h1 align="center"> 🖖🏼 Hi, glad to see you here! </h1>
 
 
-I'm Alina, a 20-year-old student at the <b>Higher School of Economics</b>, currently pursuing a degree at the <b>Graduate School of Business</b>. My academic journey, especially through courses like <b>Data Analysis</b>, <b>Algorithms</b> and <b>Data Storage Structures</b>, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities of the IT industry!
-
+I'm Alina, a 20-year-old student at the <b>Higher School of Economics</b>, currently pursuing a degree at the <b>Graduate School of Business</b>. My academic journey, especially through courses like <b>Data Analysis</b>, <b>Algorithms & Data Storage Structures</b>, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities of the IT industry!
 
 ### I Work With:
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=ecd633&color=22262b)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=8bc929&color=22262b)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=3776AB&color=22262b)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white&color=22262b)
+![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=d85431&color=22262b)
 ![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=d85431&color=22262b)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=2496ED&color=22262b)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=ecd633&color=22262b)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=c46896&color=22262b)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=38bdf9&color=22262b)
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=8bc929&color=22262b)
-![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=d85431&color=22262b)
 ![Webpack](https://img.shields.io/badge/Webpack-4F4F4F?logo=webpack&logoColor=74aecb&color=22262b)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white&color=22262b)
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=3776AB&color=22262b)
 ![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?logo=adobephotoshop&logoColor=31A8FF&color=22262b)
 
 ### I Learn:
@@ -24,7 +23,6 @@ I'm Alina, a 20-year-old student at the <b>Higher School of Economics</b>, curre
 
 <details>
 <summary> Some statistics </summary>
-<br />
 
   <p align="center">
     <img src="https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&title_color=f0f6fb&text_color=9198a1&icon_color=4493f8&bg_color=0d1116&show_icons=true&hide=issues&hide_border=true&count_private=true">
@@ -32,6 +30,8 @@ I'm Alina, a 20-year-old student at the <b>Higher School of Economics</b>, curre
   </p>
   
 </details>
+
+---
 
 ### Contact With Me:
 

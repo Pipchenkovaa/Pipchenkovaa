@@ -1,7 +1,7 @@
 <h1 align='center'> Hey, glad to see you here! </h1>
 
 <p>
-  I'm Alina, a 20-year-old student at the <b>Higher School of Economics</b>, currently pursuing a degree at the <b>Graduate School of Business</b>. My academic journey, especially through courses like <b>Data Analysis</b>, <b>Algorithms</b>, and <b>Data Storage Structures</b>, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities in the tech world!
+  I'm Alina, a 20-year-old student at the <b>Higher School of Economics</b>, currently pursuing a degree at the <b>Graduate School of Business</b> 🎓 <br>My academic journey, especially through courses like <b>Data Analysis</b>, <b>Algorithms</b>, and <b>Data Storage Structures</b>, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities in the tech world!
 </p>
 
 ### I Currently Work With:

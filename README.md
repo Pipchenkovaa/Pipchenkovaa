@@ -1,4 +1,4 @@
-## < Hey! I'm Alina />
+### < Hey! I'm Alina />
 
 I
 
@@ -25,10 +25,11 @@ Here are some ideas to get you started:
     <img src="https://github-readme-streak-stats.herokuapp.com/?user=Pipchenkovaa&theme=dark&background=0d1116">
   </p>
   
-    ![Pipchenkovaa's Streak](https://github-readme-streak-stats.herokuapp.com/?user=Pipchenkovaa&theme=dark)
-  
 </details>
-<!-- ![Pipchenkovaa's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Pipchenkovaa&theme=dark&show_icons=true&hide_border=false&layout=compact) -->
 
-## Contact with me
+### Contact with me
 
+[![Telegram](https://img.shields.io/badge/Telegram-@pip_ch-blue?style=social&logo=telegram)](https://t.me/@pip_ch)
+[![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=social&logo=vk)](https://vk.com/pip_ch)
+[![Email](https://img.shields.io/badge/Email-pipchenkova0701@gmail.com-red?style=flat-square&logo=gmail)](mailto:pipchenkova0701@gmail.com)
+[![GitHub followers](https://img.shields.io/github/followers/Pipchenkovaa.svg?label=Follow%20@Pipchenkovaa&style=social)](https://github.com/Pipchenkovaa/)

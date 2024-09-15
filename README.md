@@ -1,25 +1,26 @@
 <h1 align="center"> Hey, glad to see you here! </h1>
 
-<p align="center">
-  I'm Alina, a 20-year-old student at the <b>Higher School of Economics</b>, currently pursuing a degree at the <b>Graduate School of Business</b> 🎓 <br>My academic journey, especially through courses like <b>Data Analysis</b>, <b>Algorithms</b>, and <b>Data Storage Structures</b>, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities in the tech world!
-</p>
 
-### I Currently Work With:
-![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white&color=38bdf9)
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=black)
-![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
-![Webpack](https://img.shields.io/badge/Webpack-4F4F4F?logo=webpack&logoColor=white&color=2b3a42)
-![SQL](https://img.shields.io/badge/SQL-4479A1?logo=postgresql&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+I'm Alina, a 20-year-old student at the <b>Higher School of Economics</b>, currently pursuing a degree at the <b>Graduate School of Business</b>. My academic journey, especially through courses like <b>Data Analysis</b>, <b>Algorithms</b> and <b>Data Storage Structures</b>, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities of the IT industry!
+
+
+### I Work With:
+![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=d85431&color=22262b)
+![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=2496ED&color=22262b)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=ecd633&color=22262b)
+![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=c46896&color=22262b)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=38bdf9&color=22262b)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=8bc929&color=22262b)
+![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=d85431&color=22262b)
+![Webpack](https://img.shields.io/badge/Webpack-4F4F4F?logo=webpack&logoColor=74aecb&color=22262b)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white&color=22262b)
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=3776AB&color=22262b)
+![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?logo=adobephotoshop&logoColor=31A8FF&color=22262b)
 
 ### I Learn:
-![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
-![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&color=22262b)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=3178C6&color=22262b)
+![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=2496ED&color=22262b)
 
 <details>
 <summary> Some statistics </summary>
@@ -32,9 +33,8 @@
   
 </details>
 
-### Contact With Me
+### Contact With Me:
 
-[![Telegram](https://img.shields.io/badge/Telegram-@pip_ch-blue?style=flat&logo=telegram&logoColor=blue&labelColor=white&color=white&link=https://t.me/@pip_ch)]
-[![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=flat&logo=vk&labelColor=white&logoColor=blue&color=white)]
-[![Github](https://img.shields.io/badge/-@Pipchenkovaa-24292e?style=flat&logo=Github&logoColor=white&labelColor=white&link=https://github.com/Pipchenkovaa)](https://github.com/Pipchenkovaa/)
-[![Email](https://img.shields.io/badge/-pipchenkova0701@gmail.com-red?style=flat-square&logo=gmail)](mailto:pipchenkova0701@gmail.com)
+[![Telegram](https://img.shields.io/badge/-@pip_ch-blue?style=flat&logo=telegram&logoColor=blue&labelColor=FFFAFA&color=FFFAFA&link=https://t.me/@pip_ch)](https://t.me/@pip_ch)
+[![Github](https://img.shields.io/badge/-@Pipchenkovaa-24292e?style=flat&logo=Github&logoColor=22262b&color=FFFAFA&link=https://github.com/Pipchenkovaa)](https://github.com/Pipchenkovaa/)
+[![Email](https://img.shields.io/badge/-pipchenkova0701@gmail.com-red?style=flat&logo=gmail&labelColor=FFFAFA&color=FFFAFA)](mailto:pipchenkova0701@gmail.com)

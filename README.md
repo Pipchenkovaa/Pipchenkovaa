@@ -15,8 +15,6 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-![Alina's GitHub stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&show_icons=true&hide=contribs,prs&cache_seconds=86400&theme=github_dark)
-
 ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&theme=dark&show_icons=true&hide_border=false&count_private=true)
 ![Pipchenkovaa's Streak](https://github-readme-streak-stats.herokuapp.com/?user=Pipchenkovaa&theme=dark&hide_border=false)
 ![Pipchenkovaa's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=Pipchenkovaa&theme=dark&show_icons=true&hide_border=false&layout=compact)

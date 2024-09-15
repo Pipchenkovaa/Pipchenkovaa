@@ -20,7 +20,7 @@ Here are some ideas to get you started:
 <summary> Some statistics </summary>
 <br />
 
-  ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&theme=gotham&show_icons=true&hide_border=false&count_private=true)
+  ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&theme=dark&show_icons=true&hide_border=true&count_private=true)
   
   ![Pipchenkovaa's Streak](https://github-readme-streak-stats.herokuapp.com/?user=Pipchenkovaa&theme=gotham&hide_border=true)
   

@@ -1,7 +1,7 @@
-### < Hey! I'm Alina />
+<h1 align='center'> Hey, glad to see you here! </h1>
 
 <p>
-  I'm Alina, a 20-year-old student at the **Higher School of Economics**, currently pursuing a degree at the **Graduate School of Business**. My academic journey, especially through courses like **Data Analysis**, **Algorithms**, and **Data Storage Structures**, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities in the tech world!
+  I'm Alina, a 20-year-old student at the <br>Higher School of Economics<br>, currently pursuing a degree at the **Graduate School of Business**. My academic journey, especially through courses like **Data Analysis**, **Algorithms**, and **Data Storage Structures**, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities in the tech world!
 </p>
 
 ### I Currently Work With:
@@ -37,8 +37,4 @@
 [![Telegram](https://img.shields.io/badge/Telegram-@pip_ch-blue?style=social&logo=telegram)](https://t.me/@pip_ch)
 [![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=social&logo=vk)](https://vk.com/pip_ch)
 [![Github](https://img.shields.io/badge/-@Pipchenkovaa-24292e?style=flat&logo=Github&logoColor=white&link=https://github.com/Pipchenkovaa)](https://github.com/Pipchenkovaa/)
-
-
-
-[![GitHub followers](https://img.shields.io/github/followers/Pipchenkovaa.svg?label=Follow%20@Pipchenkovaa&style=social)](https://github.com/Pipchenkovaa/)
 [![Email](https://img.shields.io/badge/Email-pipchenkova0701@gmail.com-red?style=flat-square&logo=gmail)](mailto:pipchenkova0701@gmail.com)

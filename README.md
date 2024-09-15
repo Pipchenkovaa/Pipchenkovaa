@@ -15,6 +15,7 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
-![Alina's github stats](https://github-readme-stats.vercel.app/api?Pipchenkovaa=anuraghazra&show_icons=true&hide=contribs,prs&cache_seconds=86400&theme=github_dark)
+![Alina's github stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&show_icons=true&hide=contribs,prs&cache_seconds=86400&theme=github_dark)
+
 
 

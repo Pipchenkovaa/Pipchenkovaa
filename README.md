@@ -34,7 +34,7 @@
 
 ### Contact With Me
 
-[![Telegram](https://img.shields.io/badge/Telegram-@pip_ch-blue?style=flat&logo=telegram&logoColor=white&labelColor=blue&link=https://t.me/@pip_ch)](https://t.me/@pip_ch)
-[![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=flat&logo=vk&logoColor=blue)](https://vk.com/pip_ch)
+[![Telegram](https://img.shields.io/badge/Telegram-@pip_ch-blue?style=flat&logo=telegram&logoColor=white&labelColor=blue&color=white&link=https://t.me/@pip_ch)](https://t.me/@pip_ch)
+[![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=flat&logo=vk&labelColor=blue)](https://vk.com/pip_ch)
 [![Github](https://img.shields.io/badge/-@Pipchenkovaa-24292e?style=flat&logo=Github&logoColor=white&link=https://github.com/Pipchenkovaa)](https://github.com/Pipchenkovaa/)
 [![Email](https://img.shields.io/badge/Email-pipchenkova0701@gmail.com-red?style=flat-square&logo=gmail)](mailto:pipchenkova0701@gmail.com)

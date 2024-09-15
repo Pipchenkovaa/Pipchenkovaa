@@ -1,4 +1,4 @@
-<h1> 🖖🏼 Hi & Welcome! / Привет & Добро пожаловать! </h1>
+<h1> < Hi & Welcome! / Привет & Добро пожаловать! /> </h1>
 
 I'm Alina, a 20-year-old student at the **HSE («Higher School of Economics»)**, currently pursuing a degree at the **Graduate School of Business**. My academic journey, especially through courses like **Data Analysis, Algorithms & Data Storage Structures**, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities of the IT industry!
 

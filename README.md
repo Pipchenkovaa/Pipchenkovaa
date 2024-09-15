@@ -16,6 +16,8 @@ Here are some ideas to get you started:
 -->
 
 ![Alina's github stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&show_icons=true&hide=contribs,prs&cache_seconds=86400&theme=github_dark)
+![Alina's GitHub stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&show_icons=true&hide=contribs,prs&cache_seconds=86400&theme=github_dark)
+
 
 
 

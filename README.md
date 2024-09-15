@@ -22,7 +22,7 @@ Here are some ideas to get you started:
 
   ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&theme=react&show_icons=true&hide=stars,issues&hide_border=true)
   
-  ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&theme=react&show_icons=true&&hide=stars,issues&hide_border=true&count_private=true)
+  ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&theme=react&show_icons=true&&hide=stars&hide_border=true&count_private=true)
   
   ![Pipchenkovaa's Streak](https://github-readme-streak-stats.herokuapp.com/?user=Pipchenkovaa&theme=react&hide_border=true)
   

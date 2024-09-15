@@ -4,13 +4,18 @@
 ![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=white)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=white)
+![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)
 ![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?logo=webpack&logoColor=black)
 ![SQL](https://img.shields.io/badge/SQL-4479A1?logo=postgresql&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
+
+### Another version
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black" style="width: 150px; height: auto;" />
+<img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white" style="width: 150px; height: auto;" />
+<img src="https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=white" style="width: 150px; height: auto;" />
 
 <!--
 **Pipchenkovaa/Pipchenkovaa** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.

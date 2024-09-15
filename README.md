@@ -22,7 +22,7 @@ Here are some ideas to get you started:
 
   <p align="center">
     <img src="https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&title_color=f0f6fb&text_color=9198a1&icon_color=4493f8&bg_color=0d1116&show_icons=true&hide=issues&hide_border=false&count_private=true">
-    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Pipchenkovaa&theme=dark&background=0d1116">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=Pipchenkovaa&theme=dark&background=0d1116&hide_border=true">
   </p>
   
     ![Pipchenkovaa's Streak](https://github-readme-streak-stats.herokuapp.com/?user=Pipchenkovaa&theme=dark)

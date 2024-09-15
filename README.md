@@ -16,7 +16,11 @@ Here are some ideas to get you started:
 -->
 
 ![Alina's GitHub stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&show_icons=true&hide=contribs,prs&cache_seconds=86400&theme=github_dark)
-(https://github-readme-stats.vercel.app/api/pin/?username=Pipchenkovaa&repo=github-readme-stats&cache_seconds=86400&theme=github_dark)
+
+### My projects:
+[![Repo 1](https://github-readme-stats.vercel.app/api/pin/?username=Pipchenkovaa&repo=portfolio&cache_seconds=86400&theme=github_dark)](https://pipchenkovaa.github.io/Portfolio-Website/)
+[![Repo 2](https://github-readme-stats.vercel.app/api/pin/?username=Pipchenkovaa&repo=another-project&cache_seconds=86400&theme=github_dark)](https://pipchenkovaa.github.io/Website-With-A-Parallax-Effect/)
+
 
 
 

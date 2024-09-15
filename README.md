@@ -36,5 +36,6 @@
 
 [![Telegram](https://img.shields.io/badge/Telegram-@pip_ch-blue?style=social&logo=telegram)](https://t.me/@pip_ch)
 [![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=social&logo=vk)](https://vk.com/pip_ch)
+[![VK](https://img.shields.io/badge/VK-pip_ch-blue?style=flat&logo=vk)](https://vk.com/pip_ch)
 [![Github](https://img.shields.io/badge/-@Pipchenkovaa-24292e?style=flat&logo=Github&logoColor=white&link=https://github.com/Pipchenkovaa)](https://github.com/Pipchenkovaa/)
 [![Email](https://img.shields.io/badge/Email-pipchenkova0701@gmail.com-red?style=flat-square&logo=gmail)](mailto:pipchenkova0701@gmail.com)

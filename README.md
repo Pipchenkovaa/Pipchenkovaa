@@ -20,7 +20,7 @@ Here are some ideas to get you started:
 <summary> Some statistics </summary>
 <br />
 
-  ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api/top-langs/?username=Pipchenkovaa&layout=compact&title_color=f0f6fb&text_color=9198a1&icon_color=4493f8&bg_color=0d1116)
+  ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&title_color=f0f6fb&text_color=9198a1&icon_color=4493f8&bg_color=0d1116)
   
   ![Pipchenkovaa's Stats](https://github-readme-stats.vercel.app/api?username=Pipchenkovaa&theme=react&show_icons=true&&hide=issues&hide_border=true&count_private=true)
   

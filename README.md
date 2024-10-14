@@ -22,6 +22,7 @@ I'm Alina, a 20-year-old student at the **HSE («Higher School of Economics»)**
 ### I learn / Я изучаю:
 ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&color=22262b)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=3178C6&color=22262b)
+![Vite](https://img.shields.io/badge/-Vite-2496ED?logo=vite&color=22262b)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=2496ED&color=22262b)
 
 <details>

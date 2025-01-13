@@ -9,6 +9,7 @@ I'm Alina, a 20-year-old student at the **HSE («Higher School of Economics»)**
 ![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=d85431&color=22262b)
 ![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=2496ED&color=22262b)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=ecd633&color=22262b)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=3178C6&color=22262b)
 ![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=c46896&color=22262b)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=38bdf9&color=22262b)
 ![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=8bc929&color=22262b)
@@ -18,11 +19,10 @@ I'm Alina, a 20-year-old student at the **HSE («Higher School of Economics»)**
 ![SQL](https://img.shields.io/badge/SQL-003B57?logo=sql&logoColor=white&color=22262b)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=38bdf9&color=22262b)
 ![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?logo=adobephotoshop&logoColor=31A8FF&color=22262b)
+![Vite](https://img.shields.io/badge/-Vite-2496ED?logo=vite&color=22262b)
 
 ### I learn / Я изучаю:
 ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&color=22262b)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=3178C6&color=22262b)
-![Vite](https://img.shields.io/badge/-Vite-2496ED?logo=vite&color=22262b)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=2496ED&color=22262b)
 
 <details>

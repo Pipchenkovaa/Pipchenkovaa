@@ -14,16 +14,18 @@ I'm Alina, a 20-year-old student at the **HSE («Higher School of Economics»)**
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwind-css&logoColor=38bdf9&color=22262b)
 ![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=8bc929&color=22262b)
 ![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=d85431&color=22262b)
+![Vite](https://img.shields.io/badge/-Vite-2496ED?logo=vite&color=22262b)
 ![Webpack](https://img.shields.io/badge/Webpack-4F4F4F?logo=webpack&logoColor=74aecb&color=22262b)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=3776AB&color=22262b)
-![SQL](https://img.shields.io/badge/SQL-003B57?logo=sql&logoColor=white&color=22262b)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=38bdf9&color=22262b)
-![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?logo=adobephotoshop&logoColor=31A8FF&color=22262b)
-![Vite](https://img.shields.io/badge/-Vite-2496ED?logo=vite&color=22262b)
+![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?logo=adobephotoshop&logoColor=white&color=22262b)
 
 ### I learn / Я изучаю:
 ![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&color=22262b)
 ![Docker](https://img.shields.io/badge/-Docker-2496ED?logo=docker&logoColor=2496ED&color=22262b)
+![Redux](https://img.shields.io/badge/-Redux-22262b?logo=redux&logoColor=764ABC)
+![Redux Toolkit](https://img.shields.io/badge/-Redux%20Toolkit-22262b?logo=redux&logoColor=764ABC)
+![Django](https://img.shields.io/badge/-Django-22262b?logo=django&logoColor=198059)
 
 <details>
 <summary> Some statistics / Некоторые статистические данные </summary>

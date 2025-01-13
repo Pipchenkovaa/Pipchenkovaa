@@ -18,6 +18,7 @@ I'm Alina, a 20-year-old student at the **HSE («Higher School of Economics»)**
 ![Webpack](https://img.shields.io/badge/Webpack-4F4F4F?logo=webpack&logoColor=74aecb&color=22262b)
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=3776AB&color=22262b)
 ![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=38bdf9&color=22262b)
+![Figma](https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white&color=22262b)
 ![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?logo=adobephotoshop&logoColor=white&color=22262b)
 
 ### I learn / Я изучаю:

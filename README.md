@@ -1,9 +1,9 @@
 <h1> < Hi & Welcome! / Привет & Добро пожаловать! /> </h1>
 
 ### A few words about me / Несколько слов обо мне:
-I'm Alina, a 20-year-old student at the **HSE («Higher School of Economics»)**, currently pursuing a degree at the **Graduate School of Business**. My academic journey, especially through courses like **Data analysis, Machine learning, Algorithms & data structures**, sparked my deep passion for programming. I’m excited to keep expanding my skills and explore the endless possibilities of the IT industry!
+I'm Alina, a 20-year-old student at the **HSE («Higher School of Economics»)**, currently pursuing a degree at the **Graduate School of Business**. My academic journey, especially through courses like **Data analysis, Machine learning, Algorithms & data structures**, has fostered my interest in programming.
 
-Меня зовут Алина и мне 20 лет. В настоящее время я являюсь студенткой **НИУ ВШЭ (Национального исследовательского университета «Высшей школы экономики»)** факультета **Высшей школы бизнеса**. Мое обучение, в частности такие дисциплины, как **Анализ данных, Машинное обучение, Алгоритмы и структуры данных**, разожгли во мне интерес к программированию. Я стремлюсь и дальше развивать свои навыки и исследовать новые возможности IT-сферы!
+Меня зовут Алина и мне 20 лет. В настоящее время я являюсь студенткой **НИУ ВШЭ (Национального исследовательского университета «Высшей школы экономики»)** факультета **Высшей школы бизнеса**. Мое обучение, в частности такие дисциплины, как **Анализ данных, Машинное обучение, Алгоритмы и структуры данных**, способствовали моей заинтересованности программированием.
 
 ### I work with / Я работаю с:
 ![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=d85431&color=22262b)

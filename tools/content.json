@@ -1,0 +1,113 @@
+{
+  "name": "Alina Pipchenkova",
+  "nav": ["Frontend", "AI", "Product"],
+
+  "hero": {
+    "greeting": "Hi, I’m",
+    "first_name": "Alina",
+    "role": "Frontend Developer",
+    "tagline": [
+      "I build interfaces from idea to production —",
+      "with a strong focus on design, performance and AI."
+    ],
+    "chips": ["React", "Next.js", "TypeScript", "AI integrations"],
+    "status": "Open to work — frontend (remote / hybrid, Moscow)",
+    "panel_words": ["Ideas", "Interfaces", "Products"],
+    "process": ["Design", "Develop", "Integrate", "Iterate"]
+  },
+
+  "contacts": [
+    { "label": "Telegram",  "icon": "send",      "url": "https://t.me/pip_ch" },
+    { "label": "Email",     "icon": "mail",      "url": "mailto:pipchenkova0701@gmail.com" },
+    { "label": "Portfolio", "icon": "globe",     "url": "https://pipchenkovaa.github.io/businessCard/" },
+    { "label": "LinkedIn",  "icon": "briefcase", "url": "" }
+  ],
+
+  "about": {
+    "paragraphs": [
+      "I’m a frontend developer with 2+ years of commercial experience, passionate about creating thoughtful, user-focused interfaces. I work across the full frontend cycle — from Figma and design systems to API integration and production.",
+      "Currently doing my Master’s at HSE (Applied Neural Network Technologies) and exploring the intersection of frontend, product design and AI."
+    ],
+    "stats": [
+      ["2+", "years of experience"],
+      ["end-to-end", "frontend cycle"],
+      ["AI", "in product work"]
+    ]
+  },
+
+  "stack": [
+    { "group": "Core", "items": [["React", "Re"], ["Next.js", "Nx"], ["TypeScript", "Ts"], ["JavaScript", "Js"], ["Effector", "Ef"]] },
+    { "group": "UI & Motion", "items": [["Tailwind", "Tw"], ["Framer Motion", "Fm"], ["shadcn/ui", "Sc"], ["GSAP", "Gs"], ["Three.js", "3d"]] },
+    { "group": "Tools", "items": [["Vite", "Vi"], ["Git", "Gt"], ["Docker", "Dk"], ["Vercel", "Vc"], ["Figma", "Fg"]] }
+  ],
+  "also": ["Python", "FastAPI"],
+
+  "projects_link": "https://github.com/Pipchenkovaa?tab=repositories",
+  "projects": [
+    {
+      "key": "brainstorming",
+      "title": "Brainstorming",
+      "subtitle": "AI-powered image pipeline",
+      "tags": ["Next.js", "TypeScript", "AI APIs"],
+      "url": "https://brainstorming-beryl.vercel.app"
+    },
+    {
+      "key": "icon-ir",
+      "title": "Icon IR",
+      "subtitle": "Corporate website",
+      "tags": ["Next.js", "React", "Effector"],
+      "url": ""
+    },
+    {
+      "key": "linkspace",
+      "title": "LinkSpace",
+      "subtitle": "Personal link organizer (MVP)",
+      "tags": ["FastAPI", "Next.js", "TypeScript"],
+      "url": ""
+    }
+  ],
+
+  "experience": [
+    {
+      "company": "Freelance",
+      "role": "Frontend Developer",
+      "dates": "Dec 2025 — now",
+      "text": "Client websites and web apps: SDM Metall Prom corporate site, Brainstorming AI image app."
+    },
+    {
+      "company": "Atlas IR",
+      "role": "Frontend Developer",
+      "dates": "Jun 2024 — Dec 2025",
+      "text": "UI-kit of 100+ components, refactoring, client–server integration and interface design for an IR platform."
+    },
+    {
+      "company": "FSK",
+      "role": "Frontend Developer (Intern)",
+      "dates": "Oct 2024 — Jan 2025",
+      "text": "Design system and UI-kit components in Storybook, used across the development department."
+    }
+  ],
+
+  "education": [
+    {
+      "title": "HSE — Master’s",
+      "lines": ["Applied Neural Network Technologies (PRINT)"],
+      "dates": "2026 — now"
+    },
+    {
+      "title": "HSE — Bachelor’s",
+      "lines": [
+        "Business Administration (Entrepreneurship)",
+        "Minors: Applied Programming, Data Analysis & ML (Faculty of Computer Science)"
+      ],
+      "dates": "2022 — 2026"
+    }
+  ],
+
+  "cta": {
+    "title": ["Let’s", "build together"],
+    "text": "I’m always open to interesting projects and opportunities.",
+    "button": "Send a message",
+    "url": "https://t.me/pip_ch"
+  }
+}

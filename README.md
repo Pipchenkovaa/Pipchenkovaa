@@ -4,7 +4,7 @@
 
 Создаю интерфейсы от макета в Figma до продакшна. Дизайн-системы, UI-Kit, интеграции с API.
 
-`Open to work — frontend (remote / hybrid, Moscow)`
+<img src="./assets/status.svg" width="10" height="10" alt="Open to work" />&nbsp; `Open to work — frontend (remote / hybrid, Moscow)`
 
 ### A few words about me / Несколько слов обо мне:
 

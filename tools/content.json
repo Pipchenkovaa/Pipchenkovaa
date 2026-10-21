@@ -36,11 +36,11 @@
   },
 
   "stack": [
-    { "group": "Core", "items": [["React", "Re"], ["Next.js", "Nx"], ["TypeScript", "Ts"], ["JavaScript", "Js"], ["Effector", "Ef"]] },
-    { "group": "UI & Motion", "items": [["Tailwind", "Tw"], ["Framer Motion", "Fm"], ["shadcn/ui", "Sc"], ["GSAP", "Gs"], ["Three.js", "3d"]] },
-    { "group": "Tools", "items": [["Vite", "Vi"], ["Git", "Gt"], ["Docker", "Dk"], ["Vercel", "Vc"], ["Figma", "Fg"]] }
+    { "group": "Core", "items": [["React", "Re", "#61DAFB"], ["Next.js", "Nx", "#000000"], ["TypeScript", "Ts", "#3178C6"], ["JavaScript", "Js", "#F7DF1E"], ["Effector", "Ef", "#FF8C00"]] },
+    { "group": "UI & Motion", "items": [["Tailwind", "Tw", "#06B6D4"], ["Framer Motion", "Fm", "#0055FF"], ["shadcn/ui", "Sc", "#000000"], ["GSAP", "Gs", "#88CE02"], ["Three.js", "3d", "#000000"]] },
+    { "group": "Tools", "items": [["Vite", "Vi", "#646CFF"], ["Git", "Gt", "#F05032"], ["Docker", "Dk", "#2496ED"], ["Vercel", "Vc", "#000000"], ["Figma", "Fg", "#F24E1E"]] }
   ],
-  "also": ["Python", "FastAPI"],
+  "also": [["Python", "#3776AB"], ["FastAPI", "#009688"]],
 
   "projects_link": "https://github.com/Pipchenkovaa?tab=repositories",
   "projects": [

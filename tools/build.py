@@ -58,7 +58,24 @@ FONT_FILES = {
     "lt": "Inter-Light.otf",
     "rg": "Inter-Regular.otf",
     "md": "Inter-Medium.otf",
+    "sb": "Inter-SemiBold.otf",
 }
+
+BODY = "#b4b3c1"         # larger body copy in about / experience / education
+
+
+def mix(c1: str, c2: str, t: float) -> str:
+    a = [int(c1.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4)]
+    b = [int(c2.lstrip("#")[i:i + 2], 16) for i in (0, 2, 4)]
+    return "#" + "".join(f"{round(x + (y - x) * t):02x}" for x, y in zip(a, b))
+
+
+def brand(c: str | None) -> str:
+    """Brand colour usable on a dark card: pure-black brands become white."""
+    if not c:
+        return "#ffffff"
+    c = c if c.startswith("#") else "#" + c
+    return "#ffffff" if c.lower() in ("#000", "#000000") else c
 
 
 def fmt(v: float) -> str:
@@ -303,8 +320,36 @@ def card(s: SVG, x, y, w, h, r=R, glow=None):
           f'rx="{fmt(r - .5)}" stroke="{edge}" stroke-width="1"/>')
 
 
-def label(s: SVG, x, y, t):
-    s.text(x, y, t.upper(), F["md"], 12.5, INK_2, tracking=.2)
+def label(s: SVG, x, y, t, color="#d9d8e2"):
+    s.text(x, y, t.upper(), F["sb"], 13.5, color, tracking=.02)
+
+
+def tech_tile(s: SVG, x, y, size, n, mono, color, idx):
+    c = brand(color)
+    light = mix(c, "#ffffff", .5)
+    r = 12
+    # coloured halo under the tile
+    s.add(f'<rect x="{fmt(x + 5)}" y="{fmt(y + 9)}" width="{fmt(size - 10)}" height="{fmt(size - 10)}" rx="10" '
+          f'fill="{c}" fill-opacity=".2" filter="{s.blur(7)}"/>')
+    s.add(f'<rect x="{fmt(x)}" y="{fmt(y)}" width="{size}" height="{size}" rx="{r}" fill="#131319"/>')
+    glow = s.rad([(0, c, .5), (.55, c, .12), (1, c, 0)], .16, .06, 1)
+    s.add(f'<rect x="{fmt(x)}" y="{fmt(y)}" width="{size}" height="{size}" rx="{r}" fill="{glow}"/>')
+    sheen = s.lin([(0, "#ffffff", .1), (.5, "#ffffff", .02), (1, "#ffffff", 0)], 0, 0, 0, 1, key="tsheen")
+    s.add(f'<rect x="{fmt(x)}" y="{fmt(y)}" width="{size}" height="{size}" rx="{r}" fill="{sheen}"/>')
+    rim = s.lin([(0, c, .95), (.45, c, .32), (1, "#ffffff", .07)], 0, 0, 1, 1)
+    s.add(f'<rect x="{fmt(x + .55)}" y="{fmt(y + .55)}" width="{fmt(size - 1.1)}" height="{fmt(size - 1.1)}" '
+          f'rx="{r - .5}" stroke="{rim}" stroke-width="1.1"/>')
+    # specular highlight on the top-right corner (top-left is taken by the index number)
+    s.add(f'<path d="M{fmt(x + size - 17)} {fmt(y + 5.5)}Q{fmt(x + size - 5.5)} {fmt(y + 5.5)} {fmt(x + size - 5.5)} {fmt(y + 17)}" '
+          f'stroke="#ffffff" stroke-opacity=".6" stroke-width="1.4" stroke-linecap="round"/>')
+    # moving glint
+    clip = s.clip_rect(x, y, size, size, r)
+    band = s.lin([(0, "#ffffff", 0), (.5, "#ffffff", .3), (1, "#ffffff", 0)], 0, 0, 1, 0, key="band")
+    s.add(f'<g clip-path="{clip}"><g transform="rotate(22 {fmt(x + size / 2)} {fmt(y + size / 2)})">'
+          f'<rect class="gs" style="animation-delay:{fmt(idx * .16)}s" x="{fmt(x - 34)}" y="{fmt(y - 14)}" '
+          f'width="16" height="{size + 28}" fill="{band}"/></g></g>')
+    s.text(x + 7, y + 12.5, str(n), F["md"], 7.5, light, opacity=.75)
+    s.text(x + size / 2, y + 31, mono, F["dmd"], 17, light, anchor="middle")
 
 
 def arrow(s: SVG, cx, cy, size=9, color=INK_2, sw=1.6):
@@ -330,13 +375,17 @@ def sparkle(s: SVG, cx, cy, r, fill=INK, cls=None):
     s.add(f'<path{c} d="{d}" fill="{fill}"/>')
 
 
-def chip(s: SVG, x, y, t, h=34, size=14.5, font="rg", pad=17, color="#dddce5", fill_a=.035, stroke_a=.13):
-    w = F[font].width(t, size) + pad * 2
+def chip(s: SVG, x, y, t, h=34, size=14.5, font="rg", pad=17, color="#dddce5", fill_a=.035, stroke_a=.13, dot=None):
+    lead = 13 if dot else 0
+    w = F[font].width(t, size) + pad * 2 + lead
     s.add(f'<rect x="{fmt(x + .5)}" y="{fmt(y + .5)}" width="{fmt(w - 1)}" height="{fmt(h - 1)}" '
           f'rx="{fmt(h / 2)}" fill="#ffffff" fill-opacity="{fmt(fill_a)}" stroke="#ffffff" '
           f'stroke-opacity="{fmt(stroke_a)}"/>')
     s.add(f'<rect x="{fmt(x + h / 2)}" y="{fmt(y + .5)}" width="{fmt(w - h)}" height="1" fill="#ffffff" fill-opacity=".05"/>')
-    s.text(x + pad, y + h / 2 + size * .36, t, F[font], size, color)
+    if dot:
+        s.add(f'<circle cx="{fmt(x + pad + 3.5)}" cy="{fmt(y + h / 2)}" r="6" fill="{dot}" fill-opacity=".25" filter="{s.blur(2.5)}"/>')
+        s.add(f'<circle cx="{fmt(x + pad + 3.5)}" cy="{fmt(y + h / 2)}" r="3.5" fill="{dot}"/>')
+    s.text(x + pad + lead, y + h / 2 + size * .36, t, F[font], size, color)
     return w
 
 
@@ -368,13 +417,13 @@ def screenshot(key: str) -> str | None:
 def build_nav(C) -> SVG:
     s = SVG(W, 40, f"{C['name']} — " + " · ".join(C["nav"]))
     use_css(s, "twinkle")
-    s.text(4, 25, C["name"].upper(), F["md"], 12.5, OUTSIDE, tracking=.2)
+    s.text(4, 25, C["name"].upper(), F["sb"], 13.5, OUTSIDE, tracking=.02)
     x = W - 46
     for item in reversed(C["nav"]):
-        w = F["md"].width("/ " + item.upper(), 12.5, .16)
+        w = F["sb"].width("/ " + item.upper(), 13.5, .02)
         x -= w
-        s.text(x, 25, "/ " + item.upper(), F["md"], 12.5, OUTSIDE, tracking=.16)
-        x -= 34
+        s.text(x, 25, "/ " + item.upper(), F["sb"], 13.5, OUTSIDE, tracking=.02)
+        x -= 30
     sparkle(s, W - 16, 20.5, 9, OUTSIDE, cls="tw")
     return s
 
@@ -516,40 +565,43 @@ def build_about_stack(C) -> SVG:
     a = C["about"]
     cw = (W - GAP) / 2
     # ---- measure about
-    lines = [F["lt"].wrap(p, 16, cw - 56) for p in a["paragraphs"]]
-    y = 88
+    size, lh = 17, 26.5
+    lines = [F["rg"].wrap(p, size, cw - 56) for p in a["paragraphs"]]
+    y = 92
     about_positions = []
     for para in lines:
         for ln in para:
             about_positions.append((y, ln))
-            y += 25
-        y += 13
-    stats_top = y + 12
-    about_h = stats_top + 104
+            y += lh
+        y += 14
+    about_h = y + 8 + 112
     # ---- measure stack
     rows = C["stack"]
-    stack_h = 74 + len(rows) * 86 + (60 if C.get("also") else 0) + 18
+    also = [x if isinstance(x, list) else [x, None] for x in C.get("also", [])]
+    stack_h = 74 + len(rows) * 86 + (46 if also else 0) + 18
     H = max(about_h, stack_h, 360)
 
     title = "About me: " + " ".join(a["paragraphs"]) + " Tech stack: " + ", ".join(
-        n for r in rows for n, _ in r["items"]) + (", " + ", ".join(C.get("also", [])) if C.get("also") else "")
+        it[0] for r in rows for it in r["items"]) + (", " + ", ".join(n for n, _ in also) if also else "")
     s = SVG(W, H, title)
+    s.css.append("@keyframes gs{0%{transform:translateX(0)}22%,100%{transform:translateX(96px)}}"
+                 ".gs{animation:gs 7s cubic-bezier(.5,0,.3,1) infinite}")
 
     # ---- about card
     card(s, 0, 0, cw, H, glow=(cw * .1, H * 1.05, 260, .1))
     label(s, 28, 46, "About me")
     for yy, ln in about_positions:
-        s.text(28, yy, ln, F["lt"], 16, INK_3)
-    sy = H - 104
+        s.text(28, yy, ln, F["rg"], size, BODY)
+    sy = H - 108
     s.add(f'<rect x="28" y="{fmt(sy)}" width="{fmt(cw - 56)}" height="1" fill="#ffffff" fill-opacity=".08"/>')
     s.add(f'<rect x="28" y="{fmt(sy - .5)}" width="44" height="2" rx="1" fill="{LAV}" fill-opacity=".7"/>')
     colw = (cw - 56) / len(a["stats"])
     for i, (big, small) in enumerate(a["stats"]):
         x = 28 + i * colw + (0 if i == 0 else 18)
         if i:
-            s.add(f'<rect x="{fmt(28 + i * colw)}" y="{fmt(sy + 26)}" width="1" height="52" fill="#ffffff" fill-opacity=".08"/>')
-        s.text(x, sy + 52, big, F["dmd"], 23, INK)
-        s.text(x, sy + 76, small, F["lt"], 13.5, INK_4)
+            s.add(f'<rect x="{fmt(28 + i * colw)}" y="{fmt(sy + 26)}" width="1" height="56" fill="#ffffff" fill-opacity=".08"/>')
+        s.text(x, sy + 54, big, F["dmd"], 24, INK)
+        s.text(x, sy + 79, small, F["rg"], 14.5, INK_4)
 
     # ---- stack card
     x0 = cw + GAP
@@ -559,38 +611,35 @@ def build_about_stack(C) -> SVG:
     y = 70
     tile, step = 46, 72
     tx0 = x0 + cw - 28 - (tile + step * 4)
-    row_step = max(86, (H - 70 - (46 if C.get("also") else 0) - 18) / len(rows))
+    row_step = max(86, (H - 70 - (46 if also else 0) - 18) / len(rows))
     for ri, row in enumerate(rows):
         if ri:
             s.add(f'<rect x="{fmt(x0 + 28)}" y="{fmt(y - (row_step - 68) / 2)}" width="{fmt(cw - 56)}" height="1" fill="#ffffff" fill-opacity=".06"/>')
-        s.text(x0 + 28, y + 28, row["group"], F["rg"], 13.5, INK_2)
-        for i, (name, mono) in enumerate(row["items"]):
+        s.text(x0 + 28, y + 28, row["group"], F["rg"], 14, INK_2)
+        for i, item in enumerate(row["items"]):
+            name, mono = item[0], item[1]
+            color = item[2] if len(item) > 2 else None
             n += 1
             tx = tx0 + i * step
-            core = ri == 0
-            s.add(f'<rect x="{fmt(tx + .5)}" y="{fmt(y + .5)}" width="{tile - 1}" height="{tile - 1}" rx="12" '
-                  f'fill="{s.lin([(0, "#ffffff", .09), (1, "#ffffff", .02)], 0, 0, 1, 1, key="tile")}" '
-                  f'stroke="{LAV if core else "#ffffff"}" stroke-opacity="{".42" if core else ".14"}"/>')
-            s.text(tx + 7, y + 12.5, str(n), F["md"], 7.5, "#ffffff", opacity=.38)
-            s.text(tx + tile / 2, y + 31, mono, F["dmd"], 17, LAV_HI if core else "#e7e5ef", anchor="middle")
+            tech_tile(s, tx, y, tile, n, mono, color, n - 1)
             s.text(tx + tile / 2, y + tile + 17, name, F["rg"], 11, INK_4, anchor="middle")
         y += row_step
-    if C.get("also"):
+    if also:
         y = y - row_step + 68 + (row_step - 68) / 2 + 10
         s.add(f'<rect x="{fmt(x0 + 28)}" y="{fmt(y - 10)}" width="{fmt(cw - 56)}" height="1" fill="#ffffff" fill-opacity=".06"/>')
         y += 4
-        lw = s.text(x0 + 28, y + 23, "Also working with", F["rg"], 13.5, INK_2)
+        lw = s.text(x0 + 28, y + 23, "Also working with", F["rg"], 14, INK_2)
         cx = max(tx0, x0 + 28 + lw + 14)
-        for t in C["also"]:
-            cx += chip(s, cx, y + 4, t, h=28, size=12.5, pad=13) + 8
+        for t, col in also:
+            cx += chip(s, cx, y + 4, t, h=28, size=12.5, pad=12, dot=brand(col) if col else None) + 8
     return s
 
 
 def build_projects_header(C) -> SVG:
     s = SVG(W, 30, "Selected projects — view all on GitHub")
-    s.text(4, 20, "SELECTED PROJECTS", F["md"], 12.5, OUTSIDE, tracking=.2)
-    w = F["md"].width("VIEW ALL ON GITHUB", 12.5, .16)
-    s.text(W - 26 - w, 20, "VIEW ALL ON GITHUB", F["md"], 12.5, OUTSIDE, tracking=.16)
+    s.text(4, 20, "SELECTED PROJECTS", F["sb"], 13.5, OUTSIDE, tracking=.02)
+    w = F["sb"].width("VIEW ALL ON GITHUB", 13.5, .02)
+    s.text(W - 26 - w, 20, "VIEW ALL ON GITHUB", F["sb"], 13.5, OUTSIDE, tracking=.02)
     arrow(s, W - 11, 15.5, 8, OUTSIDE, 1.5)
     return s
 
@@ -693,7 +742,7 @@ MOCKS = {"brainstorming": mock_brainstorming, "icon-ir": mock_icon_ir, "linkspac
 
 
 def build_project(C, p, idx, n) -> tuple[SVG, float]:
-    H = 300
+    H = 330
     cw = (W - GAP * (n - 1)) / n
     pad_l = GAP * idx / n
     pad_r = GAP * (n - 1 - idx) / n
@@ -710,22 +759,28 @@ def build_project(C, p, idx, n) -> tuple[SVG, float]:
 
     # device frame, tilted and cut by the card's bottom edge
     clip = s.clip_rect(x0, 0, cw, H, R)
-    fw, fh = 320, 230
-    m = (.97, -.075, 0, 1, x0 + 22, 166)
+    shot = screenshot(p["key"])
+    fw, fh = (292, 214) if shot else (320, 230)
+    m = (.97, -.07, 0, 1, x0 + 22, 152) if shot else (.97, -.075, 0, 1, x0 + 22, 166)
     T = "matrix(" + " ".join(fmt(v) for v in m) + ")"
     s.add(f'<g clip-path="{clip}"><g transform="{T}">')
     s.add(f'<rect x="8" y="16" width="{fw}" height="{fh}" rx="14" fill="#000" fill-opacity=".6" filter="{s.blur(12)}"/>')
-    s.add(f'<rect width="{fw}" height="{fh}" rx="13" fill="#0b0b10"/>')
-    inner = s.clip_rect(0, 0, fw, fh, 13)
+    s.add(f'<rect width="{fw}" height="{fh}" rx="12" fill="#0b0b10"/>')
+    inner = s.clip_rect(0, 0, fw, fh, 12)
     s.add(f'<g clip-path="{inner}">')
-    shot = screenshot(p["key"])
     if shot:
-        s.add(f'<image href="{shot}" width="{fw}" height="{fh}" preserveAspectRatio="xMidYMin slice"/>')
+        bar = 17
+        s.add(f'<rect width="{fw}" height="{bar}" fill="#17171e"/>')
+        for k in range(3):
+            s.add(f'<circle cx="{11 + k * 8}" cy="{bar / 2}" r="2.3" fill="#ffffff" fill-opacity=".22"/>')
+        s.add(f'<rect x="{fw / 2 - 48}" y="4.5" width="96" height="8" rx="4" fill="#ffffff" fill-opacity=".07"/>')
+        s.add(f'<image href="{shot}" y="{bar}" width="{fw}" height="{fh - bar}" preserveAspectRatio="xMidYMin meet"/>')
+        s.add(f'<rect y="{bar}" width="{fw}" height="{fh - bar}" fill="{s.lin([(0, "#0b0b10", 0), (.7, "#0b0b10", 0), (1, "#0b0b10", .35)], 0, 0, 0, 1)}"/>')
     elif p["key"] in MOCKS:
         MOCKS[p["key"]](s, fw, fh)
     s.add("</g>")
-    s.add(f'<rect x=".6" y=".6" width="{fw - 1.2}" height="{fh - 1.2}" rx="12.5" '
-          f'stroke="{s.lin([(0, "#ffffff", .3), (1, "#ffffff", .06)], 0, 0, 1, 1)}" stroke-width="1.2"/>')
+    s.add(f'<rect x=".6" y=".6" width="{fw - 1.2}" height="{fh - 1.2}" rx="11.5" '
+          f'stroke="{s.lin([(0, "#ffffff", .35), (1, "#ffffff", .08)], 0, 0, 1, 1)}" stroke-width="1.2"/>')
     s.add("</g></g>")
     return s, iw
 
@@ -741,29 +796,29 @@ def dot(s: SVG, x, y):
 
 
 def layout_experience(C, w):
-    out, y = [], 84
-    tw = w - 50 - 28
+    out, y = [], 88
+    tw = w - 50 - 26
     for e in C["experience"]:
-        lines = F["lt"].wrap(e["text"], 13.5, tw)
+        lines = F["rg"].wrap(e["text"], 15, tw)
         out.append((y, e, lines))
-        y += 22 + 21 + len(lines) * 19 + 24
+        y += 25 + 24 + len(lines) * 22 + 24
     return out, y
 
 
 def layout_education(C, w):
-    out, y = [], 84
-    tw = w - 50 - 24
+    out, y = [], 88
+    tw = w - 50 - 22
     for e in C["education"]:
         lines = []
         for k, ln in enumerate(e["lines"]):
-            lines += [(k, t) for t in F["lt" if k == 0 else "lt"].wrap(ln, 13.5 if k == 0 else 12.5, tw)]
+            lines += [(k, t) for t in F["rg"].wrap(ln, 15 if k == 0 else 14, tw)]
         out.append((y, e, lines))
-        y += 24 + len(lines) * 19 + 20 + 24
+        y += 26 + len(lines) * 21 + 22 + 26
     return out, y
 
 
 def build_bottom_row(C):
-    exp_w, edu_w = 400, 296
+    exp_w, edu_w = 424, 304
     cta_w = W - exp_w - edu_w - GAP * 2
     exp_layout, exp_h = layout_experience(C, exp_w)
     edu_layout, edu_h = layout_education(C, edu_w)
@@ -779,25 +834,25 @@ def build_bottom_row(C):
     first_y, last_y = exp_layout[0][0], exp_layout[-1][0]
     timeline(s, 30, first_y - 5, last_y + 40)
     for y, e, lines in exp_layout:
-        dot(s, 30, y - 5)
-        s.text(50, y, e["company"], F["md"], 16, INK)
-        s.text(exp_w - 28, y, e["dates"], F["rg"], 12.5, INK_4, anchor="end")
-        s.text(50, y + 22, e["role"], F["rg"], 14, LAV)
+        dot(s, 30, y - 5.5)
+        s.text(50, y, e["company"], F["md"], 17.5, INK)
+        s.text(exp_w - 26, y, e["dates"], F["rg"], 13.5, INK_4, anchor="end")
+        s.text(50, y + 25, e["role"], F["rg"], 15.5, LAV)
         for k, ln in enumerate(lines):
-            s.text(50, y + 44 + k * 19, ln, F["lt"], 13.5, INK_3)
+            s.text(50, y + 49 + k * 22, ln, F["rg"], 15, BODY)
 
     x0 = exp_w + GAP
     card(s, x0, 0, edu_w, H)
     label(s, x0 + 28, 46, "Education")
     timeline(s, x0 + 30, edu_layout[0][0] - 5, edu_layout[-1][0] + 40)
     for y, e, lines in edu_layout:
-        dot(s, x0 + 30, y - 5)
-        s.text(x0 + 50, y, e["title"], F["md"], 16, INK)
-        yy = y + 24
+        dot(s, x0 + 30, y - 5.5)
+        s.text(x0 + 50, y, e["title"], F["md"], 17.5, INK)
+        yy = y + 26
         for k, t in lines:
-            s.text(x0 + 50, yy, t, F["lt"], 13.5 if k == 0 else 12.5, INK_3 if k == 0 else INK_4)
-            yy += 19
-        s.text(x0 + 50, yy + 4, e["dates"], F["rg"], 12.5, LAV)
+            s.text(x0 + 50, yy, t, F["rg"], 15 if k == 0 else 14, BODY if k == 0 else "#9e9dad")
+            yy += 21
+        s.text(x0 + 50, yy + 5, e["dates"], F["rg"], 14, LAV)
 
     # ---- CTA (separate image so it can be a link)
     c = C["cta"]
@@ -821,10 +876,10 @@ def build_bottom_row(C):
             t.add(f'<path class="{"gl" if k == 0 else "gl2"}" d="{d}" stroke="#ffffff" stroke-opacity=".8" stroke-width="1.6" stroke-linecap="round"/>')
     t.add("</g></g>")
     sparkle(t, cx0 + 34, 50, 10, INK, cls="tw")
-    t.text(cx0 + 26, 112, c["title"][0], F["dmd"], 29, INK, tracking=-.01)
-    t.text(cx0 + 26, 146, c["title"][1], F["dmd"], 29, INK, tracking=-.01)
-    for k, ln in enumerate(F["lt"].wrap(c["text"], 14, cta_w - 96)):
-        t.text(cx0 + 26, 180 + k * 21, ln, F["lt"], 14, INK_3)
+    t.text(cx0 + 26, 112, c["title"][0], F["dmd"], 28, INK, tracking=-.01)
+    t.text(cx0 + 26, 145, c["title"][1], F["dmd"], 28, INK, tracking=-.01)
+    for k, ln in enumerate(F["rg"].wrap(c["text"], 15, cta_w - 70)):
+        t.text(cx0 + 26, 181 + k * 22, ln, F["rg"], 15, BODY)
     bw = F["md"].width(c["button"], 14.5) + 62
     by = H - 82
     t.add(f'<rect x="{fmt(cx0 + 26)}" y="{fmt(by)}" width="{fmt(bw)}" height="44" rx="22" '
@@ -847,6 +902,11 @@ def a(url, inner):
     return f'<a href="{html.escape(url, quote=True)}">{inner}</a>'
 
 
+def still(inner):
+    """An <a> without href: GitHub then skips wrapping the image in a link to the raw file."""
+    return f"<a>{inner}</a>"
+
+
 def img(src, width=None, height=None, alt=""):
     size = f' width="{width}"' if width else ""
     size += f' height="{height}"' if height else ""
@@ -865,8 +925,9 @@ def text_version(C) -> str:
     links = [f"[{c['label']}]({c['url']})" for c in C["contacts"] if c["url"]]
     out.append(" · ".join(links) + "\n")
     out.append("**About.** " + " ".join(C["about"]["paragraphs"]) + "\n")
-    out.append("**Stack.** " + "; ".join(f"{r['group']}: " + ", ".join(n for n, _ in r["items"]) for r in C["stack"]) +
-               (("; Also: " + ", ".join(C["also"])) if C.get("also") else "") + "\n")
+    also = [x[0] if isinstance(x, list) else x for x in C.get("also", [])]
+    out.append("**Stack.** " + "; ".join(f"{r['group']}: " + ", ".join(it[0] for it in r["items"]) for r in C["stack"]) +
+               (("; Also: " + ", ".join(also)) if also else "") + "\n")
     out.append("**Projects.**\n")
     for p in C["projects"]:
         name = f"[{p['title']}]({p['url']})" if p["url"] else p["title"]
@@ -889,9 +950,9 @@ def main():
     full = pct(W)
 
     rows = []
-    rows.append(img(write("nav.svg", build_nav(C)), full, alt=f"{C['name']} — " + " · ".join(C["nav"])))
+    rows.append(still(img(write("nav.svg", build_nav(C)), full, alt=f"{C['name']} — " + " · ".join(C["nav"]))))
     hero = build_hero(C)
-    rows.append(img(write("hero.svg", hero), full, alt=hero.title))
+    rows.append(still(img(write("hero.svg", hero), full, alt=hero.title)))
 
     btns = []
     for c in C["contacts"]:
@@ -903,7 +964,7 @@ def main():
     rows.append("".join(btns))
 
     ab = build_about_stack(C)
-    rows.append(img(write("about-stack.svg", ab), full, alt=ab.title))
+    rows.append(still(img(write("about-stack.svg", ab), full, alt=ab.title)))
     rows.append(a(C["projects_link"], img(write("projects-header.svg", build_projects_header(C)), full,
                                           alt="Selected projects — view all on GitHub")))
     cards = []
@@ -917,7 +978,7 @@ def main():
     rows.append("".join(cards))
 
     s, iw, t, tw = build_bottom_row(C)
-    rows.append(img(write("experience-education.svg", s), pct(iw), alt=s.title) +
+    rows.append(still(img(write("experience-education.svg", s), pct(iw), alt=s.title)) +
                 a(C["cta"]["url"], img(write("cta.svg", t), pct(tw), alt=t.title)))
 
     readme = ["<!-- Generated by tools/build.py from tools/content.json — edit the JSON, not this file. -->", ""]

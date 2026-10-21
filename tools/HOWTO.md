@@ -22,8 +22,12 @@ Do not edit `README.md` by hand — it is overwritten on every build.
 - `contacts` → LinkedIn `url` is empty, so the button is not rendered. Paste a URL to show it.
 - `projects` → Icon IR and LinkSpace have no `url`; their cards link to the repositories tab.
 
-## Real screenshots instead of drawn mockups
+## Project screenshots
 
-Put `brainstorming.png`, `icon-ir.png`, `linkspace.png` (≈1280×920, top of the page)
-into `tools/screens/` and rebuild — they get embedded into the project cards.
-Keep each under ~300 KB (export as JPG/WebP) or the SVGs get heavy.
+`tools/screens/<project-key>.jpg` (or .png/.webp) is embedded into the project card.
+Only the top of the page is visible (about 820×540 px is enough).
+Keep each file under ~100 KB or the SVGs get heavy. Delete the file to get the drawn mockup back.
+
+## Tech stack colours
+
+Each stack item is `[name, monogram, brand hex]`. Pure black brands (`#000000`) are shown as white.

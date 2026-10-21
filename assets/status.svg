@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+  <style>
+    .dot {
+      animation: pulse 1.5s ease-in-out infinite;
+      transform-origin: 6px 6px;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .3; transform: scale(.7); }
+    }
+  </style>
+
+  <circle class="dot" cx="6" cy="6" r="4" fill="#22c55e"/>
+</svg>

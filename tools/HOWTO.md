@@ -28,6 +28,12 @@ Do not edit `README.md` by hand — it is overwritten on every build.
 Only the top of the page is visible (about 820×540 px is enough).
 Keep each file under ~100 KB or the SVGs get heavy. Delete the file to get the drawn mockup back.
 
+## Accent colour
+
+`"accent"` at the top of `content.json` is the only colour setting. Glows, the name gradient,
+the flower, the CTA button (and the text colour on it) are all derived from it.
+The green "open to work" dot and the tech-stack brand colours are independent.
+
 ## Tech stack colours
 
 Each stack item is `[name, monogram, brand hex]`. Pure black brands (`#000000`) are shown as white.

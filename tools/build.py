@@ -18,6 +18,7 @@ and they replace the drawn mockups inside the project cards.
 from __future__ import annotations
 
 import base64
+import colorsys
 import html
 import json
 import math
@@ -41,14 +42,9 @@ GAP = 16            # gap between cards
 R = 22              # card radius
 SCALE = 0.996       # rows are rendered at 99.6% so inline images never wrap
 
-INK = "#f3f2f7"          # primary text
-INK_2 = "#c9c8d4"        # secondary
-INK_3 = "#a3a2b2"        # body copy
-INK_4 = "#8d8c9c"        # muted
-OUTSIDE = "#8b8a99"      # text that sits on the GitHub page itself (light + dark)
-LAV = "#b9a4f8"          # accent
-LAV_HI = "#d9cbff"
-GREEN = "#34d399"
+GREEN = "#34d399"        # "open to work" dot — semantic, not part of the accent
+DEFAULT_ACCENT = "#b9a4f8"
+# every other colour is derived from content.json -> "accent" in apply_theme()
 
 FONT_FILES = {
     "dsb": "InterDisplay-SemiBold.otf",
@@ -61,7 +57,6 @@ FONT_FILES = {
     "sb": "Inter-SemiBold.otf",
 }
 
-BODY = "#b4b3c1"         # larger body copy in about / experience / education
 
 
 def mix(c1: str, c2: str, t: float) -> str:
@@ -76,6 +71,55 @@ def brand(c: str | None) -> str:
         return "#ffffff"
     c = c if c.startswith("#") else "#" + c
     return "#ffffff" if c.lower() in ("#000", "#000000") else c
+
+
+# ----------------------------------------------------------------------------
+# theme: one accent colour in content.json, every shade is derived from it
+# ----------------------------------------------------------------------------
+def _rgb(c: str):
+    c = c.lstrip("#")
+    return [int(c[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+
+
+def hsl(h: float, s: float, l: float) -> str:
+    r, g, b = colorsys.hls_to_rgb(h % 1, max(0, min(1, l)), max(0, min(1, s)))
+    return "#" + "".join(f"{round(v * 255):02x}" for v in (r, g, b))
+
+
+def luminance(c: str) -> float:
+    def ch(v):
+        return v / 12.92 if v <= .03928 else ((v + .055) / 1.055) ** 2.4
+    r, g, b = (ch(v) for v in _rgb(c))
+    return .2126 * r + .7152 * g + .0722 * b
+
+
+def apply_theme(accent: str):
+    global ACC, ACC_HI, ACC_GLOW, ACC_SOFT, ON_ACC, NAME_GRAD, BTN_GRAD, PETAL, PETAL_D
+    global INK, INK_2, INK_3, INK_4, BODY, LABEL, MUTED_2, OUTSIDE
+    accent = accent if accent.startswith("#") else "#" + accent
+    h, l, s = colorsys.rgb_to_hls(*_rgb(accent))
+    ACC = accent                                        # roles, dates, timeline, dividers
+    ACC_HI = mix(accent, "#ffffff", .45)                # light tint (swooshes, mock UI)
+    ACC_GLOW = hsl(h, s * .95, l - .08)                 # translucent glows on cards
+    ACC_SOFT = hsl(h, s, min(l, .8) + .06)              # glow behind the flower
+    NAME_GRAD = [(0, mix(accent, "#ffffff", .38)), (.55, hsl(h, s + .06, l - .05)), (1, mix(accent, "#ffffff", .18))]
+    BTN_GRAD = [(0, mix(accent, "#ffffff", .42)), (1, hsl(h, s, l - .04))]
+    ON_ACC = hsl(h, .35, .09) if luminance(accent) > .3 else "#ffffff"
+    PETAL = [(0, hsl(h, s * .3, .14)), (.25, hsl(h, s * .2, .4)), (.58, hsl(h, s * .48, .79)),
+             (.86, hsl(h, s * .6, .93)), (1, "#ffffff")]
+    PETAL_D = [(0, hsl(h, s * .15, .1)), (.45, hsl(h, s * .18, .27)), (1, hsl(h, s * .2, .6))]
+    # neutrals: near-grey, nudged a few percent towards the accent so they belong together
+    INK = mix("#f3f3f4", accent, .04)                   # primary text
+    INK_2 = mix("#cacacd", accent, .06)                 # secondary
+    INK_3 = mix("#a5a5aa", accent, .07)                 # small body copy
+    INK_4 = mix("#8e8e94", accent, .07)                 # muted
+    BODY = mix("#b6b6bb", accent, .06)                  # larger body copy
+    LABEL = mix("#dadadf", accent, .05)                 # section labels
+    MUTED_2 = mix("#9f9fa5", accent, .07)
+    OUTSIDE = mix("#8b8b92", accent, .08)               # text on the GitHub page itself
+
+
+apply_theme(DEFAULT_ACCENT)
 
 
 def fmt(v: float) -> str:
@@ -220,8 +264,9 @@ class SVG:
         self.glyphs.setdefault(key, d)
         return key
 
-    def text(self, x, y, s, font: Font, size, fill=INK, tracking=0.0,
+    def text(self, x, y, s, font: Font, size, fill=None, tracking=0.0,
              anchor="start", opacity=None, cls=None) -> float:
+        fill = fill or INK
         g = font.shape(s)
         tr = tracking * font.upm
         width = font.width(s, size, tracking)
@@ -313,15 +358,15 @@ def card(s: SVG, x, y, w, h, r=R, glow=None):
     if glow:
         gx, gy, gr, ga = glow
         clip = s.clip_rect(x, y, w, h, r)
-        paint = s.rad([(0, "#9b86f0", ga), (1, "#9b86f0", 0)], gx, gy, gr, units="userSpaceOnUse")
+        paint = s.rad([(0, ACC_GLOW, ga), (1, ACC_GLOW, 0)], gx, gy, gr, units="userSpaceOnUse")
         s.add(f'<rect x="{fmt(x)}" y="{fmt(y)}" width="{fmt(w)}" height="{fmt(h)}" fill="{paint}" clip-path="{clip}"/>')
     edge = s.lin([(0, "#ffffff", .17), (.5, "#ffffff", .07), (1, "#ffffff", .05)], 0, 0, 0, 1, key="edge")
     s.add(f'<rect x="{fmt(x + .5)}" y="{fmt(y + .5)}" width="{fmt(w - 1)}" height="{fmt(h - 1)}" '
           f'rx="{fmt(r - .5)}" stroke="{edge}" stroke-width="1"/>')
 
 
-def label(s: SVG, x, y, t, color="#d9d8e2"):
-    s.text(x, y, t.upper(), F["sb"], 13.5, color, tracking=.02)
+def label(s: SVG, x, y, t, color=None):
+    s.text(x, y, t.upper(), F["sb"], 13.5, color or LABEL, tracking=.02)
 
 
 def tech_tile(s: SVG, x, y, size, n, mono, color, idx):
@@ -352,7 +397,8 @@ def tech_tile(s: SVG, x, y, size, n, mono, color, idx):
     s.text(x + size / 2, y + 31, mono, F["dmd"], 17, light, anchor="middle")
 
 
-def arrow(s: SVG, cx, cy, size=9, color=INK_2, sw=1.6):
+def arrow(s: SVG, cx, cy, size=9, color=None, sw=1.6):
+    color = color or INK_2
     h = size / 2
     s.add(f'<path d="M{fmt(cx - h)} {fmt(cy + h)}L{fmt(cx + h)} {fmt(cy - h)}M{fmt(cx - h + 1.5)} {fmt(cy - h)}'
           f'H{fmt(cx + h)}V{fmt(cy + h - 1.5)}" stroke="{color}" stroke-width="{sw}" '
@@ -365,7 +411,8 @@ def arrow_button(s: SVG, cx, cy, r=16):
     arrow(s, cx, cy, 9, INK_2)
 
 
-def sparkle(s: SVG, cx, cy, r, fill=INK, cls=None):
+def sparkle(s: SVG, cx, cy, r, fill=None, cls=None):
+    fill = fill or INK
     k = r * .16
     d = (f"M{fmt(cx)} {fmt(cy - r)}C{fmt(cx + k)} {fmt(cy - k)} {fmt(cx + k)} {fmt(cy - k)} {fmt(cx + r)} {fmt(cy)}"
          f"C{fmt(cx + k)} {fmt(cy + k)} {fmt(cx + k)} {fmt(cy + k)} {fmt(cx)} {fmt(cy + r)}"
@@ -375,7 +422,8 @@ def sparkle(s: SVG, cx, cy, r, fill=INK, cls=None):
     s.add(f'<path{c} d="{d}" fill="{fill}"/>')
 
 
-def chip(s: SVG, x, y, t, h=34, size=14.5, font="rg", pad=17, color="#dddce5", fill_a=.035, stroke_a=.13, dot=None):
+def chip(s: SVG, x, y, t, h=34, size=14.5, font="rg", pad=17, color=None, fill_a=.035, stroke_a=.13, dot=None):
+    color = color or mix("#dedee2", ACC, .04)
     lead = 13 if dot else 0
     w = F[font].width(t, size) + pad * 2 + lead
     s.add(f'<rect x="{fmt(x + .5)}" y="{fmt(y + .5)}" width="{fmt(w - 1)}" height="{fmt(h - 1)}" '
@@ -397,7 +445,8 @@ ICONS = {
 }
 
 
-def icon(s: SVG, name, x, y, size=20, color=INK, sw=1.6):
+def icon(s: SVG, name, x, y, size=20, color=None, sw=1.6):
+    color = color or INK
     k = size / 24
     s.add(f'<g transform="translate({fmt(x)} {fmt(y)}) scale({fmt(k)})" stroke="{color}" '
           f'stroke-width="{fmt(sw / k)}" stroke-linecap="round" stroke-linejoin="round">{ICONS[name]}</g>')
@@ -449,10 +498,9 @@ def petal(s: SVG, L, w, rot, base, bend=0.0, dark=False):
     """A long, slightly curved glass petal. Local axis: base (0,0) -> tip (b, -L)."""
     bx, by = base
     if dark:
-        body = s.lin([(0, "#16151d"), (.45, "#3a3650"), (1, "#8e88a8")], 0, 1, 0, 0, key="petal_d")
+        body = s.lin(PETAL_D, 0, 1, 0, 0, key="petal_d")
     else:
-        body = s.lin([(0, "#1f1d2a"), (.25, "#5d5878"), (.58, "#bdb4de"), (.86, "#ebe7f7"), (1, "#ffffff")],
-                     0, 1, 0, 0, key="petal")
+        body = s.lin(PETAL, 0, 1, 0, 0, key="petal")
     shade = s.lin([(0, "#05040a", 0), (1, "#05040a", .55)], 1, 0, 0, 0, key="shade")
     b = bend * L
     tipx = b
@@ -487,7 +535,7 @@ def build_hero(C) -> SVG:
 
     # ---- illustration ------------------------------------------------------
     s.add(f'<g clip-path="{clip}">')
-    s.add(f'<circle class="br" cx="800" cy="215" r="300" fill="{s.rad([(0, "#9d88f2", .26), (.55, "#9d88f2", .07), (1, "#9d88f2", 0)])}"/>')
+    s.add(f'<circle class="br" cx="800" cy="215" r="300" fill="{s.rad([(0, ACC_GLOW, .26), (.55, ACC_GLOW, .07), (1, ACC_GLOW, 0)])}"/>')
     s.add(f'<circle cx="60" cy="-60" r="340" fill="{s.rad([(0, "#ffffff", .05), (1, "#ffffff", 0)])}"/>')
 
     def back_right():
@@ -510,7 +558,7 @@ def build_hero(C) -> SVG:
     glass_panel(s, (.86, .2, 0, 1, 648, 30), 280, 304, "fa", r=16, content=main)
 
     # flower
-    s.add(f'<circle class="br" cx="860" cy="310" r="160" fill="{s.rad([(0, "#cbbcff", .26), (1, "#cbbcff", 0)])}"/>')
+    s.add(f'<circle class="br" cx="860" cy="310" r="160" fill="{s.rad([(0, ACC_SOFT, .26), (1, ACC_SOFT, 0)])}"/>')
     s.add('<g class="sw">')
     base = (932, 418)
     # (angle, length, width, bend, dark) — drawn back to front
@@ -527,10 +575,10 @@ def build_hero(C) -> SVG:
 
     # ---- copy --------------------------------------------------------------
     x0 = 48
-    w1 = s.text(x0, 106, h["greeting"] + " ", F["dsb"], 68, "#f5f4f8", tracking=-.02)
+    w1 = s.text(x0, 106, h["greeting"] + " ", F["dsb"], 68, INK, tracking=-.02)
     s.text_grad(x0 + w1, 106, h["first_name"], F["dsb"], 68,
-                [(0, "#d8c9ff"), (.55, "#b49af9"), (1, "#c7a8ff")], tracking=-.02)
-    s.text(x0, 162, h["role"], F["drg"], 36, "#ebeaf1", tracking=-.01)
+                NAME_GRAD, tracking=-.02)
+    s.text(x0, 162, h["role"], F["drg"], 36, INK, tracking=-.01)
     for i, line in enumerate(h["tagline"]):
         s.text(x0, 210 + i * 25, line, F["lt"], 18, INK_3)
     cx = x0
@@ -544,7 +592,7 @@ def build_hero(C) -> SVG:
     s.add(f'<circle class="pu" cx="{x0 + 26}" cy="338" r="6" fill="{GREEN}"/>')
     s.add(f'<circle cx="{x0 + 26}" cy="338" r="6" fill="{GREEN}"/>')
     s.add(f'<circle cx="{x0 + 24.5}" cy="336.5" r="2" fill="#ffffff" fill-opacity=".5"/>')
-    s.text(x0 + 44, 343.5, st, F["rg"], 15, "#e8e7ee")
+    s.text(x0 + 44, 343.5, st, F["rg"], 15, INK)
     return s
 
 
@@ -605,7 +653,7 @@ def build_about_stack(C) -> SVG:
         s.text(28, yy, ln, F["rg"], size, BODY)
     sy = H - 108
     s.add(f'<rect x="28" y="{fmt(sy)}" width="{fmt(cw - 56)}" height="1" fill="#ffffff" fill-opacity=".08"/>')
-    s.add(f'<rect x="28" y="{fmt(sy - .5)}" width="44" height="2" rx="1" fill="{LAV}" fill-opacity=".7"/>')
+    s.add(f'<rect x="28" y="{fmt(sy - .5)}" width="44" height="2" rx="1" fill="{ACC}" fill-opacity=".7"/>')
     # justified: first column starts at the left edge, last one ends at the right edge,
     # the gap on both sides of every divider is the same
     big_sz, small_sz = 23, 14
@@ -689,7 +737,7 @@ def tile_art(s: SVG, x, y, w, h, i):
 
 def mock_brainstorming(s: SVG, fw, fh):
     s.add(f'<rect width="74" height="{fh}" fill="#ffffff" fill-opacity=".025"/>')
-    s.add(f'<rect x="12" y="13" width="11" height="11" rx="3" fill="{s.lin([(0, "#e0d4ff"), (1, "#9f86f4")], 0, 0, 1, 1)}"/>')
+    s.add(f'<rect x="12" y="13" width="11" height="11" rx="3" fill="{s.lin([(0, ACC_HI), (1, ACC)], 0, 0, 1, 1)}"/>')
     s.text(27, 21.5, "Brainstorming", F["md"], 7.6, "#ebe9f2")
     for i, t in enumerate(["Generate", "Library", "Favorites", "Styles", "History", "Settings"]):
         yy = 46 + i * 15
@@ -700,8 +748,8 @@ def mock_brainstorming(s: SVG, fw, fh):
     s.text(88, 22, "Generate", F["md"], 9.5, "#f1f0f6")
     s.add('<rect x="88.5" y="31.5" width="158" height="18" rx="9" fill="#ffffff" fill-opacity=".05" stroke="#ffffff" stroke-opacity=".12"/>')
     s.text(97, 43, "a glass flower in soft light…", F["rg"], 6.4, "#ffffff", opacity=.42)
-    s.add(f'<rect x="252" y="31.5" width="48" height="18" rx="9" fill="{s.lin([(0, "#e2d3ff"), (1, "#b195f8")], 0, 0, 1, 0)}"/>')
-    s.text(276, 43, "Create", F["md"], 6.6, "#1b1426", anchor="middle")
+    s.add(f'<rect x="252" y="31.5" width="48" height="18" rx="9" fill="{s.lin(BTN_GRAD, 0, 0, 1, 0)}"/>')
+    s.text(276, 43, "Create", F["md"], 6.6, ON_ACC, anchor="middle")
     tw, th, g = 66, 54, 8
     for r_ in range(3):
         for c in range(3):
@@ -717,8 +765,8 @@ def mock_icon_ir(s: SVG, fw, fh):
     s.add(f'<rect x="14" y="27" width="{fw - 28}" height=".8" fill="#ffffff" fill-opacity=".08"/>')
     s.text(15, 66, "ICON", F["dlt"], 31, "#ffffff", tracking=.32, opacity=.9)
     s.text(16, 81, "Investor relations, made visible", F["rg"], 6.6, "#ffffff", opacity=.45)
-    s.add(f'<rect x="{fw - 76}" y="56" width="58" height="17" rx="8.5" stroke="#c8b8ff" stroke-opacity=".6"/>')
-    s.text(fw - 47, 67.2, "Get in touch", F["md"], 6.2, "#d9ccff", anchor="middle")
+    s.add(f'<rect x="{fw - 76}" y="56" width="58" height="17" rx="8.5" stroke="{ACC}" stroke-opacity=".6"/>')
+    s.text(fw - 47, 67.2, "Get in touch", F["md"], 6.2, ACC_HI, anchor="middle")
     # landscape panel
     px, py, pw, ph = 14, 94, fw - 28, 130
     clip = s.clip_rect(px, py, pw, ph, 8)
@@ -736,7 +784,7 @@ def mock_icon_ir(s: SVG, fw, fh):
 
 def mock_linkspace(s: SVG, fw, fh):
     s.add(f'<rect width="86" height="{fh}" fill="#ffffff" fill-opacity=".025"/>')
-    s.add(f'<circle cx="17" cy="18" r="4.5" stroke="#d9ccff" stroke-width="1.3"/>')
+    s.add(f'<circle cx="17" cy="18" r="4.5" stroke="{ACC_HI}" stroke-width="1.3"/>')
     s.text(26, 21, "LinkSpace", F["md"], 8, "#efedf5")
     for i, t in enumerate(["Library", "Favorites", "Collections", "Settings"]):
         yy = 46 + i * 15
@@ -745,8 +793,8 @@ def mock_linkspace(s: SVG, fw, fh):
         s.add(f'<circle cx="15" cy="{yy - 1.5}" r="2.3" stroke="#ffffff" stroke-opacity=".45" stroke-width=".8"/>')
         s.text(22, yy + 1, t, F["rg"], 6.6, "#ffffff", opacity=.75 if i == 0 else .45)
     s.text(100, 25, "My links", F["md"], 10, "#f1f0f6")
-    s.add(f'<rect x="{fw - 72}" y="14.5" width="58" height="16" rx="8" fill="#b9a4f8" fill-opacity=".2" stroke="#b9a4f8" stroke-opacity=".55"/>')
-    s.text(fw - 43, 25.2, "+ Add link", F["md"], 6.4, "#e2d8ff", anchor="middle")
+    s.add(f'<rect x="{fw - 72}" y="14.5" width="58" height="16" rx="8" fill="{ACC}" fill-opacity=".2" stroke="{ACC}" stroke-opacity=".55"/>')
+    s.text(fw - 43, 25.2, "+ Add link", F["md"], 6.4, ACC_HI, anchor="middle")
     for i, (t, n) in enumerate([("Work", 24), ("Inspiration", 57), ("AI", 18), ("To read", 31), ("Travel", 12), ("Archive", 40)]):
         yy = 40 + i * 24
         s.add(f'<rect x="100.5" y="{yy + .5}" width="{fw - 115}" height="19" rx="6" fill="#ffffff" fill-opacity=".03" stroke="#ffffff" stroke-opacity=".07"/>')
@@ -804,12 +852,12 @@ def build_project(C, p, idx, n) -> tuple[SVG, float]:
 
 def timeline(s: SVG, x, y_top, y_bottom):
     s.add(f'<rect x="{fmt(x - .5)}" y="{fmt(y_top)}" width="1" height="{fmt(y_bottom - y_top)}" '
-          f'fill="{s.lin([(0, LAV, .5), (1, LAV, .05)], 0, 0, 0, 1, key="tl")}"/>')
+          f'fill="{s.lin([(0, ACC, .5), (1, ACC, .05)], 0, 0, 0, 1, key="tl")}"/>')
 
 
 def dot(s: SVG, x, y):
-    s.add(f'<circle cx="{fmt(x)}" cy="{fmt(y)}" r="7" fill="{LAV}" fill-opacity=".16"/>')
-    s.add(f'<circle cx="{fmt(x)}" cy="{fmt(y)}" r="4" fill="{LAV}"/>')
+    s.add(f'<circle cx="{fmt(x)}" cy="{fmt(y)}" r="7" fill="{ACC}" fill-opacity=".16"/>')
+    s.add(f'<circle cx="{fmt(x)}" cy="{fmt(y)}" r="4" fill="{ACC}"/>')
 
 
 def layout_experience(C, w):
@@ -854,7 +902,7 @@ def build_bottom_row(C):
         dot(s, 30, y - 5.5)
         s.text(50, y, e["company"], F["md"], 17.5, INK)
         s.text(exp_w - 26, y, e["dates"], F["rg"], 13.5, INK_4, anchor="end")
-        s.text(50, y + 25, e["role"], F["rg"], 15.5, LAV)
+        s.text(50, y + 25, e["role"], F["rg"], 15.5, ACC)
         for k, ln in enumerate(lines):
             s.text(50, y + 49 + k * 22, ln, F["rg"], 15, BODY)
 
@@ -867,9 +915,9 @@ def build_bottom_row(C):
         s.text(x0 + 50, y, e["title"], F["md"], 17.5, INK)
         yy = y + 26
         for k, t in lines:
-            s.text(x0 + 50, yy, t, F["rg"], 15 if k == 0 else 14, BODY if k == 0 else "#9e9dad")
+            s.text(x0 + 50, yy, t, F["rg"], 15 if k == 0 else 14, BODY if k == 0 else MUTED_2)
             yy += 21
-        s.text(x0 + 50, yy + 5, e["dates"], F["rg"], 14, LAV)
+        s.text(x0 + 50, yy + 5, e["dates"], F["rg"], 14, ACC)
 
     # ---- CTA (separate image so it can be a link)
     c = C["cta"]
@@ -888,7 +936,7 @@ def build_bottom_row(C):
         ox = k * 15
         d = (f"M{fmt(cx0 + cta_w * .38 + ox)} {fmt(H + 10)}C{fmt(cx0 + cta_w * .62 + ox)} {fmt(H * .62)} "
              f"{fmt(cx0 + cta_w * .55 + ox)} {fmt(H * .3)} {fmt(cx0 + cta_w + 30)} {fmt(-10 + k * 12)}")
-        t.add(f'<path d="{d}" stroke="{t.lin([(0, "#ffffff", 0), (.5, "#d9cbff", .32 - k * .05), (1, "#ffffff", .05)], 0, 1, 1, 0, key="sw")}" stroke-width="{fmt(1.4 - k * .15)}"/>')
+        t.add(f'<path d="{d}" stroke="{t.lin([(0, "#ffffff", 0), (.5, ACC_HI, .32 - k * .05), (1, "#ffffff", .05)], 0, 1, 1, 0, key="sw")}" stroke-width="{fmt(1.4 - k * .15)}"/>')
         if k in (0, 2):
             t.add(f'<path class="{"gl" if k == 0 else "gl2"}" d="{d}" stroke="#ffffff" stroke-opacity=".8" stroke-width="1.6" stroke-linecap="round"/>')
     t.add("</g></g>")
@@ -900,11 +948,11 @@ def build_bottom_row(C):
     bw = F["md"].width(c["button"], 14.5) + 62
     by = H - 82
     t.add(f'<rect x="{fmt(cx0 + 26)}" y="{fmt(by)}" width="{fmt(bw)}" height="44" rx="22" '
-          f'fill="{t.lin([(0, "#ead9ff"), (1, "#c3a2fb")], 0, 0, 1, 1)}"/>')
+          f'fill="{t.lin(BTN_GRAD, 0, 0, 1, 1)}"/>')
     t.add(f'<rect x="{fmt(cx0 + 26.5)}" y="{fmt(by + .5)}" width="{fmt(bw - 1)}" height="43" rx="21.5" '
           f'stroke="#ffffff" stroke-opacity=".55"/>')
-    t.text(cx0 + 48, by + 27.2, c["button"], F["md"], 14.5, "#1a1324")
-    arrow(t, cx0 + 26 + bw - 28, by + 22, 8.5, "#1a1324", 1.7)
+    t.text(cx0 + 48, by + 27.2, c["button"], F["md"], 14.5, ON_ACC)
+    arrow(t, cx0 + 26 + bw - 28, by + 22, 8.5, ON_ACC, 1.7)
     return s, iw, t, cw_img
 
 
@@ -960,6 +1008,7 @@ def text_version(C) -> str:
 
 def main():
     C = json.loads((TOOLS / "content.json").read_text(encoding="utf-8"))
+    apply_theme(C.get("accent", DEFAULT_ACCENT))
     ASSETS.mkdir(exist_ok=True)
     for old in ASSETS.glob("*.svg"):
         old.unlink()

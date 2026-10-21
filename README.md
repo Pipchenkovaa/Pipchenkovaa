@@ -4,7 +4,7 @@
 
 <p><a><img src="assets/hero.svg" width="99.6%" alt="Hi, I’m Alina — Frontend Developer. I build interfaces from idea to production — with a strong focus on design, performance and AI. Open to work — frontend (remote / hybrid, Moscow)"></a></p>
 
-<p><a href="https://t.me/pip_ch"><img src="assets/btn-telegram.svg" height="46" alt="Telegram"></a><a href="mailto:pipchenkova0701@gmail.com"><img src="assets/btn-email.svg" height="46" alt="Email"></a><a href="https://pipchenkovaa.github.io/businessCard/"><img src="assets/btn-portfolio.svg" height="46" alt="Portfolio"></a></p>
+<p align="center"><a href="https://t.me/pip_ch"><img src="assets/btn-telegram.svg" height="46" alt="Telegram"></a><a href="mailto:pipchenkova0701@gmail.com"><img src="assets/btn-email.svg" height="46" alt="Email"></a><a href="https://pipchenkovaa.github.io/businessCard/"><img src="assets/btn-portfolio.svg" height="46" alt="Portfolio"></a></p>
 
 <p><a><img src="assets/about-stack.svg" width="99.6%" alt="About me: I’m a frontend developer with 2+ years of commercial experience, passionate about creating thoughtful, user-focused interfaces. I work across the full frontend cycle — from Figma and design systems to API integration and production. Currently doing my Master’s at HSE (Applied Neural Network Technologies) and exploring the intersection of frontend, product design and AI. Tech stack: React, Next.js, TypeScript, JavaScript, Effector, Tailwind, Framer Motion, shadcn/ui, GSAP, Three.js, Vite, Git, Docker, Vercel, Figma, Python, FastAPI"></a></p>
 

@@ -1,78 +1,131 @@
-<h1> < Hi & Welcome! / Привет & Добро пожаловать! /> </h1>
+<p align="center">
+  <img src="./assets/hero.svg" width="100%" alt="Alina Pipchenkova — Frontend Developer" />
+</p>
 
-**Frontend developer — React / Next.js / TypeScript**
+<p align="center">
+  <img src="./assets/status.svg" width="10" height="10" alt="Open to work" />&nbsp;
+  <strong>Open to work</strong> · Frontend · Remote / Hybrid · Moscow
+</p>
 
-Создаю интерфейсы от макета в Figma до продакшна. Дизайн-системы, UI-Kit, интеграции с API.
+<p align="center">
+  <a href="https://t.me/@pip_ch"><img src="https://img.shields.io/badge/Telegram-111116?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram" /></a>
+  <a href="mailto:pipchenkova0701@gmail.com"><img src="https://img.shields.io/badge/Email-111116?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" /></a>
+  <a href="https://pipchenkovaa.github.io/businessCard/"><img src="https://img.shields.io/badge/Portfolio-111116?style=for-the-badge&logo=safari&logoColor=white" alt="Portfolio" /></a>
+</p>
 
-<img src="./assets/status.svg" width="10" height="10" alt="Open to work" />&nbsp; `Open to work — frontend (remote / hybrid, Moscow)`
+<br />
 
-### A few words about me / Несколько слов обо мне:
+## <samp>ABOUT ME</samp>
 
-My name is Alina, I'm a frontend developer based in Moscow.
-For two years I've been building interfaces with React, Next.js and TypeScript: design systems and UI-Kits, client–server integration, animation and 3D, deployment and support. Some projects I run entirely on my own — from the Figma mockup to the domain.
-I'm doing a master's in Applied Neural Network Technologies at HSE University. I'm interested in what's happening in AI right now, and I want to bring that into my own work: creating beautiful, thoughtfully designed interfaces for websites and apps and **integrating AI services into them**.
+I'm a frontend developer based in Moscow. For two years I've been building interfaces with **React, Next.js and TypeScript** — design systems and UI-Kits, client–server integration, animation and 3D, deployment and support. Some projects I run end-to-end, from the Figma mockup to production.
 
----
+I'm doing a Master's in Applied Neural Network Technologies at HSE University and exploring the intersection of **frontend, product design and AI**.
 
-Меня зовут Алина, я фронтенд-разработчик из Москвы!
-Два года делаю интерфейсы на React, Next.js и TypeScript: собираю дизайн-системы и UI-Kit, связываю фронтенд с API, добавляю анимации и 3D, довожу проекты до продакшна и поддерживаю дальше. Часть проектов веду целиком — от дизайн-макета в Figma до домена.
-Учусь в магистратуре НИУ ВШЭ по прикладным нейросетевым технологиям. Мне интересно то, что сейчас происходит в сфере AI, и я хочу соединять это со своей работой: создавать красивые, продуманные интерфейсы сайтов и приложений и **встраивать в них ИИ-сервисы**.
+<table>
+<tr>
+<td width="33%"><b>2 years</b><br/><sub>commercial experience</sub></td>
+<td width="33%"><b>end-to-end</b><br/><sub>Figma → production</sub></td>
+<td width="33%"><b>AI</b><br/><sub>integrations & product work</sub></td>
+</tr>
+</table>
 
-### Projects / Проекты
+<br />
 
-**[Brainstorming](https://brainstorming-beryl.vercel.app)** — итеративная генерация изображений: асинхронная интеграция Cerebras API и генеративных сервисов, очередь задач, состояния генерации
-`Next.js` `TypeScript` `Effector` `Vercel`
+## <samp>SELECTED PROJECTS</samp>
 
-**[SDM Metall Prom](https://sdm-mp.ru)** — многостраничный корпоративный сайт производителя металлоконструкций: главная, каталог объектов и отдельные страницы проектов. От макета до продакшна в одиночку | [вторая версия](https://pipchenkovaa.github.io/sdm-mp_v2/)
-`Next.js` `React` `TypeScript` `TailwindCSS`
+<table>
+<tr>
+<td width="33%" valign="top">
+<h3>Brainstorming ↗</h3>
+<p>Iterative AI image generation with asynchronous Cerebras API and generative-service integrations.</p>
+<p><code>Next.js</code> <code>TypeScript</code> <code>Effector</code> <code>AI APIs</code></p>
+<a href="https://brainstorming-beryl.vercel.app"><b>Live project →</b></a>
+</td>
+<td width="33%" valign="top">
+<h3>SDM Metall Prom ↗</h3>
+<p>Multi-page corporate website for a metal structures manufacturer. Built end-to-end from design to production.</p>
+<p><code>Next.js</code> <code>React</code> <code>TypeScript</code> <code>TailwindCSS</code></p>
+<a href="https://sdm-mp.ru"><b>Live project →</b></a>
+</td>
+<td width="33%" valign="top">
+<h3>Portfolio ↗</h3>
+<p>Personal portfolio website with scroll-driven interactions and animation.</p>
+<p><code>React</code> <code>TypeScript</code> <code>Vite</code> <code>GSAP</code></p>
+<a href="https://pipchenkovaa.github.io/businessCard/"><b>Live project →</b></a>
+</td>
+</tr>
+</table>
 
-**[Portfolio](https://pipchenkovaa.github.io/businessCard/)** — личный сайт со скролл-анимациями
-`React` `TypeScript` `Vite` `GSAP`
-
-> Коммерческие проекты — Atlas IR и корпоративный портал ГК ФСК — под NDA, код закрыт.
 > Commercial work — Atlas IR and the FSK corporate portal — is under NDA, source is private.
 
----
+<br />
 
-### Stack / Стек
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=3178C6&color=22262b)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=ecd633&color=22262b)
-![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB&color=22262b)
-![Next.js](https://img.shields.io/badge/Next.js-000000?logo=nextdotjs&logoColor=white&color=22262b)
-![Effector](https://img.shields.io/badge/Effector-22262b)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?logo=tailwindcss&logoColor=38bdf9&color=22262b)
-![SCSS](https://img.shields.io/badge/SCSS-CC6699?logo=sass&logoColor=c46896&color=22262b)
-![HTML](https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=d85431&color=22262b)
-![CSS](https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=2496ED&color=22262b)
+## <samp>TECH STACK</samp>
 
-![GSAP](https://img.shields.io/badge/GSAP-88CE02?logo=greensock&logoColor=8bc929&color=22262b)
-![Three.js](https://img.shields.io/badge/Three.js-000000?logo=threedotjs&logoColor=white&color=22262b)
-![Storybook](https://img.shields.io/badge/Storybook-FF4785?logo=storybook&logoColor=FF4785&color=22262b)
-![Figma](https://img.shields.io/badge/Figma-F24E1E?logo=figma&logoColor=white&color=22262b)
+**Core**  
+![TypeScript](https://img.shields.io/badge/TypeScript-111116?style=flat-square&logo=typescript&logoColor=FF70B8)
+![JavaScript](https://img.shields.io/badge/JavaScript-111116?style=flat-square&logo=javascript&logoColor=FFFFFF)
+![React](https://img.shields.io/badge/React-111116?style=flat-square&logo=react&logoColor=FF70B8)
+![Next.js](https://img.shields.io/badge/Next.js-111116?style=flat-square&logo=nextdotjs&logoColor=FFFFFF)
+![Effector](https://img.shields.io/badge/Effector-111116?style=flat-square&logoColor=FFFFFF)
 
-![Vite](https://img.shields.io/badge/Vite-646CFF?logo=vite&logoColor=a78bfa&color=22262b)
-![Webpack](https://img.shields.io/badge/Webpack-4F4F4F?logo=webpack&logoColor=74aecb&color=22262b)
-![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=2496ED&color=22262b)
-![Vercel](https://img.shields.io/badge/Vercel-000000?logo=vercel&logoColor=white&color=22262b)
-![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=d85431&color=22262b)
+**UI & Motion**  
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-111116?style=flat-square&logo=tailwindcss&logoColor=FF70B8)
+![SCSS](https://img.shields.io/badge/SCSS-111116?style=flat-square&logo=sass&logoColor=FFFFFF)
+![GSAP](https://img.shields.io/badge/GSAP-111116?style=flat-square&logo=greensock&logoColor=FF70B8)
+![Three.js](https://img.shields.io/badge/Three.js-111116?style=flat-square&logo=threedotjs&logoColor=FFFFFF)
+![Storybook](https://img.shields.io/badge/Storybook-111116?style=flat-square&logo=storybook&logoColor=FF70B8)
 
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=3776AB&color=22262b)
-![Django](https://img.shields.io/badge/-Django-22262b?logo=django&logoColor=198059)
+**Tools**  
+![Figma](https://img.shields.io/badge/Figma-111116?style=flat-square&logo=figma&logoColor=FFFFFF)
+![Vite](https://img.shields.io/badge/Vite-111116?style=flat-square&logo=vite&logoColor=FF70B8)
+![Webpack](https://img.shields.io/badge/Webpack-111116?style=flat-square&logo=webpack&logoColor=FFFFFF)
+![Docker](https://img.shields.io/badge/Docker-111116?style=flat-square&logo=docker&logoColor=FF70B8)
+![Vercel](https://img.shields.io/badge/Vercel-111116?style=flat-square&logo=vercel&logoColor=FFFFFF)
+![Git](https://img.shields.io/badge/Git-111116?style=flat-square&logo=git&logoColor=FF70B8)
 
----
+**Also working with**  
+![Python](https://img.shields.io/badge/Python-111116?style=flat-square&logo=python&logoColor=FFFFFF)
+![Django](https://img.shields.io/badge/Django-111116?style=flat-square&logo=django&logoColor=FF70B8)
 
-### Education / Образование
+<br />
 
-**НИУ ВШЭ, ФКН** — магистратура «Прикладные нейросетевые технологии» (ПРИНТ), с 2026
+<table>
+<tr>
+<td width="50%" valign="top">
+<h3>EXPERIENCE</h3>
 
-**НИУ ВШЭ, Высшая школа бизнеса** — бакалавр, «Управление бизнесом», 2022–2026
+<b>Atlas IR</b><br/>
+<sub>Frontend Developer</sub><br/>
+UI-Kit, component development and refactoring, client–server interaction and interface design.
 
-Майноры ФКН: алгоритмы и структуры данных & машинное обучение
+<br/>
 
----
+<b>FSK</b><br/>
+<sub>Frontend Developer · Internship</sub><br/>
+Product interfaces and internal tools.
+</td>
+<td width="50%" valign="top">
+<h3>EDUCATION</h3>
 
-### Contact with me / Связаться со мной можно через:
+<b>HSE University · Master's</b><br/>
+<sub>Applied Neural Network Technologies · 2026 —</sub>
 
-- [![Telegram](https://img.shields.io/badge/-@pip_ch-blue?style=flat&logo=telegram&logoColor=blue&labelColor=FFFAFA&color=FFFAFA&link=https://t.me/@pip_ch)](https://t.me/@pip_ch)
-- [![Github](https://img.shields.io/badge/-@Pipchenkovaa-24292e?style=flat&logo=Github&logoColor=22262b&color=FFFAFA&link=https://github.com/Pipchenkovaa)](https://github.com/Pipchenkovaa/)
-- [![Email](https://img.shields.io/badge/-pipchenkova0701@gmail.com-red?style=flat&logo=gmail&labelColor=FFFAFA&color=FFFAFA)](mailto:pipchenkova0701@gmail.com)
+<br/>
+
+<b>HSE University · Bachelor's</b><br/>
+<sub>Business Administration · 2022–2026</sub><br/>
+<sub>Minor: algorithms, data structures & machine learning</sub>
+</td>
+</tr>
+</table>
+
+<br />
+
+<p align="center">
+  <samp>LET'S BUILD SOMETHING GREAT TOGETHER.</samp>
+</p>
+
+<p align="center">
+  <a href="mailto:pipchenkova0701@gmail.com"><img src="https://img.shields.io/badge/SEND_A_MESSAGE-FF5FAF?style=for-the-badge&logo=gmail&logoColor=white" alt="Send a message" /></a>
+</p>
